@@ -1,5 +1,15 @@
 # Journal des versions — application Nextcloud AxiorHub Pilote
 
+## 0.4.2 — version de développement (avec le moteur 5.6.41, contrat 1.3)
+
+- **Moteur installé sur un poste de travail** (Windows 11, Ubuntu poste) : l'application l'explique d'elle-même — message « Moteur installé
+  sur un poste local : non pris en charge » (code `moteur_poste_non_pris_en_charge`, renvoyé par le moteur 5.6.41 en mode poste), rappel
+  dans « AxiorHub est injoignable depuis ce serveur Nextcloud », et note à côté de l'adresse dans les paramètres personnels et
+  d'administration : l'application fonctionne avec la version serveur d'AxiorHub (Linux, joignable en HTTPS par le serveur Nextcloud).
+- **Description de la boutique et README** : prérequis (serveur Linux, Nextcloud, HTTPS, mémoire, disque, comptes), puis trois étapes —
+  installer la version serveur d'AxiorHub, installer l'application depuis la boutique Nextcloud, relier le compte de chaque avocat — et un
+  tableau des messages en cas de difficulté.
+
 ## 0.4.1 — version de développement (avec le moteur 5.6.39, contrat 1.3)
 
 - **Changement rapide de rubrique** (audit 5.6.37, F08) : chaque demande de connexion porte un numéro ; une réponse arrivée après un

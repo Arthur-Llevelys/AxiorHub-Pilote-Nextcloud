@@ -80,8 +80,6 @@
   "Analysis": "Analyse",
   "Answer": "Antwort",
   "AxiorHub Pilote address": "Adresse von AxiorHub Pilote",
-  "AxiorHub cannot be reached from this Nextcloud server (address, firewall or certificate).": "AxiorHub ist von diesem Nextcloud-Server aus nicht erreichbar (Adresse, Firewall oder Zertifikat).",
-  "AxiorHub cannot be reached from this Nextcloud server: check the address (for example https://courriel.example.test/agent-courriel).": "AxiorHub ist von diesem Nextcloud-Server aus nicht erreichbar: Prüfen Sie die Adresse (zum Beispiel https://courriel.example.test/agent-courriel).",
   "AxiorHub does not accept Nextcloud requests: ask the administrator to allow the Nextcloud app in AxiorHub.": "AxiorHub nimmt keine Anfragen von Nextcloud an: Bitten Sie den Administrator, die Nextcloud-App in AxiorHub zuzulassen.",
   "AxiorHub does not allow Nextcloud accounts yet: in AxiorHub, Settings › Connections › Nextcloud app, tick “Allow linking accounts from Nextcloud”.": "AxiorHub lässt Nextcloud-Konten noch nicht zu: In AxiorHub unter Einstellungen › Verbindungen › Nextcloud-App „Verknüpfung von Konten aus Nextcloud zulassen“ ankreuzen.",
   "AxiorHub is busy finishing another operation: try again in a few seconds.": "AxiorHub schließt gerade einen anderen Vorgang ab: Versuchen Sie es in einigen Sekunden erneut.",
@@ -163,7 +161,11 @@
   "Pilote · AI lawyer agent": "Pilote · KI-Agent für Anwälte",
   "AxiorHub Pilote for Nextcloud {version}": "AxiorHub Pilote für Nextcloud {version}",
   "Collapse the menu": "Menü einklappen",
-  "All functions": "Alle Funktionen"
+  "All functions": "Alle Funktionen",
+  "Engine installed on a local workstation: not supported. AxiorHub Pilote for Nextcloud needs the server version of AxiorHub (Linux server reachable over HTTPS by this Nextcloud server).": "Auf einem lokalen Arbeitsplatz installierte Engine: nicht unterstützt. AxiorHub Pilote für Nextcloud benötigt die Serverversion von AxiorHub (Linux-Server, der von diesem Nextcloud-Server über HTTPS erreichbar ist).",
+  "AxiorHub Pilote for Nextcloud works with the server version of AxiorHub (Linux server reachable over HTTPS by this Nextcloud server). An AxiorHub installed on a workstation (Windows 11 or Ubuntu desktop) is not supported: it can only be reached from that computer.": "AxiorHub Pilote für Nextcloud funktioniert mit der Serverversion von AxiorHub (Linux-Server, der von diesem Nextcloud-Server über HTTPS erreichbar ist). Ein auf einem Arbeitsplatz installiertes AxiorHub (Windows 11 oder Ubuntu Desktop) wird nicht unterstützt: Es ist nur von diesem Computer aus erreichbar.",
+  "AxiorHub cannot be reached from this Nextcloud server (address, firewall or certificate). An AxiorHub installed on a workstation (Windows 11 or Ubuntu desktop) cannot be reached: not supported.": "AxiorHub ist von diesem Nextcloud-Server aus nicht erreichbar (Adresse, Firewall oder Zertifikat). Ein auf einem Arbeitsplatz installiertes AxiorHub (Windows 11 oder Ubuntu Desktop) ist nicht erreichbar: nicht unterstützt.",
+  "AxiorHub cannot be reached from this Nextcloud server: check the address (for example https://courriel.example.test/agent-courriel). An AxiorHub installed on a workstation (Windows 11 or Ubuntu desktop) is not supported.": "AxiorHub ist von diesem Nextcloud-Server aus nicht erreichbar: Prüfen Sie die Adresse (zum Beispiel https://courriel.example.test/agent-courriel). Ein auf einem Arbeitsplatz installiertes AxiorHub (Windows 11 oder Ubuntu Desktop) wird nicht unterstützt."
  },
  "pluralForm": "nplurals=2; plural=(n != 1);"
 }

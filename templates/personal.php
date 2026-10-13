@@ -15,6 +15,7 @@ declare(strict_types=1);
 			<span id="axh-personal-status-linked" role="status"></span></p>
 	</div>
 	<form id="axh-personal-form" <?php if ($_['linked']) { p('hidden'); } ?>>
+		<p class="axh-hint"><?php p($l->t('AxiorHub Pilote for Nextcloud works with the server version of AxiorHub (Linux server reachable over HTTPS by this Nextcloud server). An AxiorHub installed on a workstation (Windows 11 or Ubuntu desktop) is not supported: it can only be reached from that computer.')); ?></p>
 		<p><label><?php p($l->t('AxiorHub Pilote address')); ?><br>
 			<input type="url" name="engineUrl" value="<?php p($_['engine_url']); ?>" placeholder="https://courriel.example.test/agent-courriel" required size="50"></label></p>
 		<p><label><?php p($l->t('AxiorHub login')); ?><br><input type="text" name="login" autocomplete="username" required></label></p>

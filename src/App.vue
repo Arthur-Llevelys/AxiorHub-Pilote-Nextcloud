@@ -113,7 +113,8 @@ const logo = imagePath('axiorhub_pilote', 'axiorhub-logo.png')
 const APP_VERSION = typeof appVersion === 'string' ? appVersion : ''
 const REASONS = {
 	moteur_a_mettre_a_jour: () => t('axiorhub_pilote', 'This AxiorHub engine is too old to be displayed in Nextcloud: update it to version 5.6.37 or later.'),
-	moteur_injoignable: () => t('axiorhub_pilote', 'AxiorHub cannot be reached from this Nextcloud server (address, firewall or certificate).'),
+	moteur_injoignable: () => t('axiorhub_pilote', 'AxiorHub cannot be reached from this Nextcloud server (address, firewall or certificate). An AxiorHub installed on a workstation (Windows 11 or Ubuntu desktop) cannot be reached: not supported.'),
+	moteur_poste_non_pris_en_charge: () => t('axiorhub_pilote', 'Engine installed on a local workstation: not supported. AxiorHub Pilote for Nextcloud needs the server version of AxiorHub (Linux server reachable over HTTPS by this Nextcloud server).'),
 	moteur_occupe: () => t('axiorhub_pilote', 'AxiorHub is busy finishing another operation: try again in a few seconds.'),
 	cle_personnelle_revoquee_ou_inconnue: () => t('axiorhub_pilote', 'Your personal key was revoked: link your account again in Personal settings.'),
 	integration_desactivee: () => t('axiorhub_pilote', 'AxiorHub does not accept Nextcloud requests: ask the administrator to allow the Nextcloud app in AxiorHub.'),
