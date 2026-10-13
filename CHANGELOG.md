@@ -13,6 +13,7 @@
 - Messages : « AxiorHub installé sur un poste de travail : utilisable seulement en mode découverte… » (code
   `moteur_poste_non_pris_en_charge`, appel relayé depuis un autre ordinateur) ; « AxiorHub est injoignable » oriente vers « Mon AxiorHub
   local » ; note à côté de l'adresse dans les paramètres personnels et d'administration.
+- **README en français et en anglais** (`README.md`, `README.en.md`, ce dernier inclus dans le paquet) : ce que fait l'application, choix de la configuration, étapes, mode découverte (« jamais pour la production ») ; captures fictives dans `screenshots/fr` et `screenshots/en`.
 - **Description de la boutique et README** : prérequis (serveur Linux, Nextcloud, HTTPS, mémoire, disque, comptes), trois étapes —
   installer la version serveur d'AxiorHub, installer l'application depuis la boutique Nextcloud, relier le compte de chaque avocat —, une
   section « Mode découverte » avec son avertissement, et un tableau des messages en cas de difficulté.
