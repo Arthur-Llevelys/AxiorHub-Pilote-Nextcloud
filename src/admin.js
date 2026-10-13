@@ -10,8 +10,8 @@ const table = document.querySelector('#axh-admin-matters tbody')
 
 // 0.4.2 : causes expliquées (moteur installé sur un poste local, moteur injoignable)
 const REASONS = {
-	moteur_poste_non_pris_en_charge: () => t('axiorhub_pilote', 'Engine installed on a local workstation: not supported. AxiorHub Pilote for Nextcloud needs the server version of AxiorHub (Linux server reachable over HTTPS by this Nextcloud server).'),
-	moteur_injoignable: () => t('axiorhub_pilote', 'AxiorHub cannot be reached from this Nextcloud server (address, firewall or certificate). An AxiorHub installed on a workstation (Windows 11 or Ubuntu desktop) cannot be reached: not supported.'),
+	moteur_poste_non_pris_en_charge: () => t('axiorhub_pilote', 'AxiorHub installed on a workstation: it can only be used in discovery mode, from the computer where it is installed (Nextcloud on the same computer, or the “My local AxiorHub” link). For your firm, install the server version (Linux, HTTPS).'),
+	moteur_injoignable: () => t('axiorhub_pilote', 'AxiorHub cannot be reached from this Nextcloud server (address, firewall or certificate). An AxiorHub installed on a workstation cannot be reached from a hosted Nextcloud: use “My local AxiorHub” (discovery mode) or install the server version.'),
 }
 
 function syncText(sync) {

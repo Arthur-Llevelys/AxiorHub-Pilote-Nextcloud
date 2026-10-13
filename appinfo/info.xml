@@ -9,7 +9,7 @@
 
 This app brings the **AxiorHub interface itself into Nextcloud** (Today, Cases, Emails, Calendar and tasks, Produce, Corporate, Contacts & CRM, AI tools, Legal research…), with its menu in the AxiorHub colours, without typing the AxiorHub password again. A simplified view keeps instructions to the Pilote, search in the cases, case sheet, legal research and recent work.
 
-**This app does not contain the engine.** It needs the **server version of AxiorHub Pilote (version 5.6.41 or later), installed on a Linux server that this Nextcloud can reach over HTTPS** — ideally the same server and the same domain as Nextcloud. Each lawyer links his or her own AxiorHub account; Nextcloud users without a linked account have no access.
+**This app does not contain the engine.** It needs the **server version of AxiorHub Pilote (version 5.6.41 or later), installed on a Linux server that this Nextcloud can reach over HTTPS** — ideally the same server and the same domain as Nextcloud. Each lawyer links his or her own AxiorHub account; Nextcloud users without a linked account have no access. An AxiorHub installed on a workstation can only be tried in *discovery mode*, for tests (see below).
 
 ## Before you start: requirements
 
@@ -19,7 +19,14 @@ This app brings the **AxiorHub interface itself into Nextcloud** (Today, Cases, 
 - The **firm's mailbox settings** (IMAP and SMTP), and a **Nextcloud app password** for a technical account that will read the case folders.
 - About 45 minutes.
 
-**Not supported: AxiorHub installed on a workstation (Windows 11 or Ubuntu desktop).** The workstation version only listens on its own computer (`127.0.0.1`): the Nextcloud server cannot reach it, even if you use Nextcloud from that same computer. The app then shows “Engine installed on a local workstation: not supported”. On a workstation, AxiorHub can still use your Nextcloud *files* (AxiorHub › Installation guide › Documents), but this app needs the server version.
+## Discovery mode: AxiorHub installed on a workstation (tests only)
+
+The workstation version of AxiorHub (Windows 11, Ubuntu desktop) only listens on its own computer (`http://127.0.0.1:8769`). It can be used with this app **in discovery mode, to test and discover the application**:
+
+- **Nextcloud installed on the same computer** (native, or Docker Desktop on Windows): in AxiorHub, **Settings › Connections › Nextcloud app**, tick “Allow linking accounts from Nextcloud (same computer)”; in Nextcloud, **Personal settings › AxiorHub Pilote**, address `http://127.0.0.1:8769/agent-courriel` (Docker Desktop: `http://host.docker.internal:8769/agent-courriel`), tick “Engine on this server (local address)”, then the local login and password shown in the same AxiorHub settings. The AxiorHub interface works in Nextcloud, with a permanent warning banner.
+- **Hosted Nextcloud** (on a server): the Nextcloud server cannot reach your computer. In **Personal settings › AxiorHub Pilote › Address of my local AxiorHub**, enter `http://127.0.0.1:8769/agent-courriel/`: the **My local AxiorHub** menu entry then opens AxiorHub in a new tab of your browser (no Pilote, no search and no display inside Nextcloud).
+
+> **Warning — tests and discovery only.** AxiorHub can then only be reached from that computer, stops when the computer is switched off, and local exchanges are not encrypted (HTTP). For your firm's work, install the **server version** (Step 1): more secure (HTTPS), backed up and reachable from every computer.
 
 ## Step 1 — Install the AxiorHub server version on Linux
 
@@ -95,8 +102,8 @@ The password is used once to obtain a personal key and is never stored. The **Ax
 
 ## If something does not work
 
-- “AxiorHub cannot be reached from this Nextcloud server”: check the address (it usually ends with `/agent-courriel`), the HTTPS certificate and the firewall; a workstation installation cannot be reached (see above).
-- “Engine installed on a local workstation: not supported”: install the server version (Step 1).
+- “AxiorHub cannot be reached from this Nextcloud server”: check the address (it usually ends with `/agent-courriel`), the HTTPS certificate and the firewall; a workstation installation cannot be reached from a hosted Nextcloud (see Discovery mode).
+- “AxiorHub installed on a workstation: it can only be used in discovery mode”: use Nextcloud on the same computer or “My local AxiorHub” (see Discovery mode); for your firm, install the server version (Step 1).
 - “The web server in front of AxiorHub asks for a login”: let `/agent-courriel/integration/v1/` and `/agent-courriel/nextcloud-session` through without login (these calls are signed or single-use).
 - The interface stays blank inside Nextcloud: serve AxiorHub under the same domain as Nextcloud, or use “Open in a new tab”.
 
@@ -111,7 +118,7 @@ Development version 0.4.2: compatibility is announced only after real installati
 
 Cette application affiche **l'interface d'AxiorHub elle-même dans Nextcloud** (Aujourd'hui, Dossiers, Courriels, Agenda et tâches, Produire, Corporate, Contacts & CRM, Outils IA, Recherche juridique…), avec son menu aux couleurs d'AxiorHub, sans ressaisir le mot de passe AxiorHub. Une vue simplifiée garde l'instruction au Pilote, la recherche dans les dossiers, la fiche du dossier, la recherche juridique et les travaux récents.
 
-**Cette application ne contient pas le moteur.** Elle a besoin de la **version serveur d'AxiorHub Pilote (5.6.41 ou ultérieure), installée sur un serveur Linux que ce Nextcloud peut joindre en HTTPS** — idéalement le même serveur et le même domaine que Nextcloud. Chaque avocat relie son propre compte AxiorHub ; les utilisateurs Nextcloud non reliés n'ont aucun accès.
+**Cette application ne contient pas le moteur.** Elle a besoin de la **version serveur d'AxiorHub Pilote (5.6.41 ou ultérieure), installée sur un serveur Linux que ce Nextcloud peut joindre en HTTPS** — idéalement le même serveur et le même domaine que Nextcloud. Chaque avocat relie son propre compte AxiorHub ; les utilisateurs Nextcloud non reliés n'ont aucun accès. Un AxiorHub installé sur un poste de travail ne peut être essayé qu'en *mode découverte*, pour des tests (voir plus bas).
 
 ## Avant de commencer : prérequis
 
@@ -121,7 +128,14 @@ Cette application affiche **l'interface d'AxiorHub elle-même dans Nextcloud** (
 - Les **paramètres de la messagerie du cabinet** (IMAP et SMTP), et un **mot de passe d'application Nextcloud** pour un compte technique qui lira les dossiers clients.
 - Environ 45 minutes.
 
-**Non pris en charge : AxiorHub installé sur un poste de travail (Windows 11 ou Ubuntu poste).** La version poste n'écoute que son propre ordinateur (`127.0.0.1`) : le serveur Nextcloud ne peut pas la joindre, même si vous utilisez Nextcloud depuis ce même ordinateur. L'application affiche alors « Moteur installé sur un poste local : non pris en charge ». Sur un poste, AxiorHub peut en revanche utiliser les *fichiers* de votre Nextcloud (AxiorHub › Guide d'installation › Documents) ; cette application, elle, demande la version serveur.
+## Mode découverte : AxiorHub installé sur un poste de travail (tests seulement)
+
+La version poste d'AxiorHub (Windows 11, Ubuntu poste) n'écoute que son propre ordinateur (`http://127.0.0.1:8769`). Elle peut servir avec cette application **en mode découverte, pour tester et découvrir l'application** :
+
+- **Nextcloud installé sur le même ordinateur** (installation classique, ou Docker Desktop sous Windows) : dans AxiorHub, **Paramètres › Connexions › Application Nextcloud**, cochez « Autoriser la liaison des comptes depuis Nextcloud (même ordinateur) » ; dans Nextcloud, **Paramètres personnels › AxiorHub Pilote**, adresse `http://127.0.0.1:8769/agent-courriel` (Docker Desktop : `http://host.docker.internal:8769/agent-courriel`), cochez « Moteur sur ce serveur (adresse locale) », puis l'identifiant et le mot de passe locaux affichés dans ces mêmes paramètres d'AxiorHub. L'interface d'AxiorHub fonctionne dans Nextcloud, avec un bandeau d'avertissement permanent.
+- **Nextcloud hébergé** (sur un serveur) : le serveur Nextcloud ne peut pas joindre votre ordinateur. Dans **Paramètres personnels › AxiorHub Pilote › Adresse de mon AxiorHub local**, saisissez `http://127.0.0.1:8769/agent-courriel/` : l'entrée **Mon AxiorHub local** du menu ouvre alors AxiorHub dans un nouvel onglet de votre navigateur (ni Pilote, ni recherche, ni affichage dans Nextcloud).
+
+> **Avertissement — tests et découverte seulement.** AxiorHub n'est alors joignable que depuis cet ordinateur, s'arrête quand l'ordinateur est éteint, et les échanges locaux ne sont pas chiffrés (HTTP). Pour le travail du cabinet, installez la **version serveur** (étape 1) : plus sûre (HTTPS), sauvegardée et joignable depuis tous les postes.
 
 ## Étape 1 — Installer la version serveur d'AxiorHub sur Linux
 
@@ -197,8 +211,8 @@ Le mot de passe sert une seule fois à obtenir une clé personnelle ; il n'est j
 
 ## En cas de difficulté
 
-- « AxiorHub est injoignable depuis ce serveur Nextcloud » : vérifiez l'adresse (elle se termine en général par `/agent-courriel`), le certificat HTTPS et le pare-feu ; une installation sur un poste de travail n'est pas joignable (voir plus haut).
-- « Moteur installé sur un poste local : non pris en charge » : installez la version serveur (étape 1).
+- « AxiorHub est injoignable depuis ce serveur Nextcloud » : vérifiez l'adresse (elle se termine en général par `/agent-courriel`), le certificat HTTPS et le pare-feu ; une installation sur un poste de travail n'est pas joignable depuis un Nextcloud hébergé (voir Mode découverte).
+- « AxiorHub installé sur un poste de travail : utilisable seulement en mode découverte » : Nextcloud sur le même ordinateur ou « Mon AxiorHub local » (voir Mode découverte) ; pour le cabinet, installez la version serveur (étape 1).
 - « Le serveur web placé devant AxiorHub demande une connexion » : laissez passer sans connexion `/agent-courriel/integration/v1/` et `/agent-courriel/nextcloud-session` (ces appels sont signés ou à usage unique).
 - L'interface reste blanche dans Nextcloud : servez AxiorHub sous le même domaine que Nextcloud, ou utilisez « Ouvrir dans un onglet ».
 

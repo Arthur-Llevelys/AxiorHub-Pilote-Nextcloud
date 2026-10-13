@@ -20,13 +20,14 @@ serveur, l'application depuis la boutique Nextcloud, puis la liaison du compte d
 | Comptes | paramètres de la messagerie du cabinet (IMAP, SMTP) ; un compte Nextcloud technique avec **mot de passe d'application** |
 | Durée | environ 45 minutes |
 
-### Non pris en charge : AxiorHub installé sur un poste de travail
+### Mode découverte : AxiorHub installé sur un poste de travail (tests seulement)
 
-La version **poste** d'AxiorHub (Windows 11, Ubuntu poste de travail) n'écoute que son propre ordinateur (`127.0.0.1`) : le serveur
-Nextcloud ne peut pas la joindre, même si vous utilisez Nextcloud depuis ce même ordinateur. L'application l'indique par le message
-**« Moteur installé sur un poste local : non pris en charge »** (ou « AxiorHub est injoignable depuis ce serveur Nextcloud »). Sur un poste,
-AxiorHub peut en revanche utiliser les *fichiers* de votre Nextcloud (AxiorHub › Guide d'installation › Documents : adresse HTTPS,
-identifiant, mot de passe d'application) ; cette application, elle, demande la version serveur.
+La version poste d'AxiorHub (Windows 11, Ubuntu poste) n'écoute que son propre ordinateur (`http://127.0.0.1:8769`). Elle peut servir avec cette application **en mode découverte, pour tester et découvrir l'application** :
+
+- **Nextcloud installé sur le même ordinateur** (installation classique, ou Docker Desktop sous Windows) : dans AxiorHub, **Paramètres › Connexions › Application Nextcloud**, cochez « Autoriser la liaison des comptes depuis Nextcloud (même ordinateur) » ; dans Nextcloud, **Paramètres personnels › AxiorHub Pilote**, adresse `http://127.0.0.1:8769/agent-courriel` (Docker Desktop : `http://host.docker.internal:8769/agent-courriel`), cochez « Moteur sur ce serveur (adresse locale) », puis l'identifiant et le mot de passe locaux affichés dans ces mêmes paramètres d'AxiorHub. L'interface d'AxiorHub fonctionne dans Nextcloud, avec un bandeau d'avertissement permanent.
+- **Nextcloud hébergé** (sur un serveur) : le serveur Nextcloud ne peut pas joindre votre ordinateur. Dans **Paramètres personnels › AxiorHub Pilote › Adresse de mon AxiorHub local**, saisissez `http://127.0.0.1:8769/agent-courriel/` : l'entrée **Mon AxiorHub local** du menu ouvre alors AxiorHub dans un nouvel onglet de votre navigateur (ni Pilote, ni recherche, ni affichage dans Nextcloud).
+
+> **Avertissement — tests et découverte seulement.** AxiorHub n'est alors joignable que depuis cet ordinateur, s'arrête quand l'ordinateur est éteint, et les échanges locaux ne sont pas chiffrés (HTTP). Pour le travail du cabinet, installez la **version serveur** (étape 1) : plus sûre (HTTPS), sauvegardée et joignable depuis tous les postes.
 
 ## Étape 1 — Installer la version serveur d'AxiorHub (Linux)
 
@@ -106,8 +107,8 @@ serveur (adresse locale) ».
 
 | Message | Que faire |
 |---|---|
-| « AxiorHub est injoignable depuis ce serveur Nextcloud » | vérifier l'adresse (elle se termine en général par `/agent-courriel`), le certificat HTTPS, le pare-feu ; une installation sur un poste de travail n'est pas joignable |
-| « Moteur installé sur un poste local : non pris en charge » | installer la version serveur (étape 1) |
+| « AxiorHub est injoignable depuis ce serveur Nextcloud » | vérifier l'adresse (elle se termine en général par `/agent-courriel`), le certificat HTTPS, le pare-feu ; une installation sur un poste de travail n'est pas joignable depuis un Nextcloud hébergé (mode découverte) |
+| « AxiorHub installé sur un poste de travail : utilisable seulement en mode découverte » | Nextcloud sur le même ordinateur ou « Mon AxiorHub local » ; pour le cabinet, installer la version serveur (étape 1) |
 | « Le serveur web placé devant AxiorHub demande une connexion » | autoriser sans connexion `/agent-courriel/integration/v1/` et `/agent-courriel/nextcloud-session` (appels signés ou à usage unique) |
 | « AxiorHub n'accepte pas les demandes de Nextcloud » | étape 1.6 dans AxiorHub |
 | L'interface reste blanche dans Nextcloud | servir AxiorHub sous le même domaine que Nextcloud, ou « Ouvrir dans un onglet » |
@@ -194,8 +195,7 @@ for a local AI), 80 GB of disk; Nextcloud 32 to 35 behind Apache with HTTPS (val
 administrator account; an HTTPS address for AxiorHub (simplest: `https://cloud.your-firm.example/agent-courriel/`); the firm's mailbox
 settings and a Nextcloud app password for a technical account; about 45 minutes.
 
-**Not supported: AxiorHub installed on a workstation (Windows 11 or Ubuntu desktop).** The workstation version only listens on its own
-computer (`127.0.0.1`), so the Nextcloud server cannot reach it; the app shows “Engine installed on a local workstation: not supported”.
+**Discovery mode (tests only): AxiorHub installed on a workstation (Windows 11 or Ubuntu desktop).** With Nextcloud on the same computer, link your account with the address `http://127.0.0.1:8769/agent-courriel` (Docker Desktop: `http://host.docker.internal:8769/agent-courriel`) and “Engine on this server (local address)”, after ticking “Allow linking accounts from Nextcloud (same computer)” in AxiorHub; the interface shows a permanent warning banner. With a hosted Nextcloud, enter `http://127.0.0.1:8769/agent-courriel/` in “Address of my local AxiorHub”: the “My local AxiorHub” entry opens it in a new browser tab (no Pilote, no search, no display inside Nextcloud). Only for tests and discovery: reachable from that computer only, stopped with it, unencrypted local HTTP. For your firm, install the server version.
 
 **Step 1 — server version on Linux**: run the commands of *Étape 1* above (clone tag `v5.6.41`, `scripts/build-release.py`,
 `install.sh`, `axiorhub-mail configure` and `doctor`, `install-interface.py`), then in AxiorHub **Settings › Connections › Nextcloud

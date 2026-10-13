@@ -2,13 +2,20 @@
 
 ## 0.4.2 — version de développement (avec le moteur 5.6.41, contrat 1.3)
 
-- **Moteur installé sur un poste de travail** (Windows 11, Ubuntu poste) : l'application l'explique d'elle-même — message « Moteur installé
-  sur un poste local : non pris en charge » (code `moteur_poste_non_pris_en_charge`, renvoyé par le moteur 5.6.41 en mode poste), rappel
-  dans « AxiorHub est injoignable depuis ce serveur Nextcloud », et note à côté de l'adresse dans les paramètres personnels et
-  d'administration : l'application fonctionne avec la version serveur d'AxiorHub (Linux, joignable en HTTPS par le serveur Nextcloud).
-- **Description de la boutique et README** : prérequis (serveur Linux, Nextcloud, HTTPS, mémoire, disque, comptes), puis trois étapes —
-  installer la version serveur d'AxiorHub, installer l'application depuis la boutique Nextcloud, relier le compte de chaque avocat — et un
-  tableau des messages en cas de difficulté.
+- **Mode découverte avec un AxiorHub installé sur un poste de travail** (Windows 11, Ubuntu poste), pour des tests seulement :
+  - *Nextcloud sur le même ordinateur* (y compris Docker Desktop sous Windows, adresse `http://host.docker.internal:<port>`) : le moteur
+    5.6.41 accepte les appels venus de ce même ordinateur et se signale (`mode: poste`) ; l'interface affiche un **bandeau
+    d'avertissement permanent** (tests et découverte seulement, joignable depuis cet ordinateur seulement, échanges locaux non chiffrés,
+    version serveur recommandée) ;
+  - *Nextcloud hébergé* : nouveau réglage personnel **« Adresse de mon AxiorHub local »** (adresse de bouclage `127.0.0.1`, `localhost`
+    ou `[::1]` seulement) et entrée **« Mon AxiorHub local »** qui ouvre AxiorHub dans un nouvel onglet du navigateur, avec le même
+    avertissement ; le serveur Nextcloud ne s'y connecte jamais (ni Pilote, ni recherche, ni affichage dans Nextcloud).
+- Messages : « AxiorHub installé sur un poste de travail : utilisable seulement en mode découverte… » (code
+  `moteur_poste_non_pris_en_charge`, appel relayé depuis un autre ordinateur) ; « AxiorHub est injoignable » oriente vers « Mon AxiorHub
+  local » ; note à côté de l'adresse dans les paramètres personnels et d'administration.
+- **Description de la boutique et README** : prérequis (serveur Linux, Nextcloud, HTTPS, mémoire, disque, comptes), trois étapes —
+  installer la version serveur d'AxiorHub, installer l'application depuis la boutique Nextcloud, relier le compte de chaque avocat —, une
+  section « Mode découverte » avec son avertissement, et un tableau des messages en cas de difficulté.
 
 ## 0.4.1 — version de développement (avec le moteur 5.6.39, contrat 1.3)
 
